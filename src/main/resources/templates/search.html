@@ -40,19 +40,20 @@
     <div th:fragment = "display" th:if="${jobs} and ${jobs.size()}">
 
         <h2 th:text="${jobs.size() + 'jobs found'}"></h2>
-        <div th:each = "job:${jobs}"></div>
+        <div th:each = "job:${jobs}">
             <table class="job-listing">
                 <tr th:each="item, idx: ${job}" th:class="${idx.odd} ? 'odd'">
                     <td th:text="${item.key}"></td>
                     <td th:text="${item.value}"></td>
                 </tr>
             </table>
+        </div>
 
 
     </div>
 
     <div th:fragment= "display" th:if="${jobs} and ${jobs.size()==0}">
-        <h2 th:text="{No jobs found}"></h2>
+        <h2 th:text="${jobs.size() + ' Jobs(s) found'}"></h2>
     </div>
 
 
